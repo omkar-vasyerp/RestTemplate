@@ -62,7 +62,7 @@ public class RestTemplateController {
         HttpHeaders httpHeaders = new HttpHeaders();
         httpHeaders.setAccept(Collections.singletonList(MediaType.APPLICATION_JSON));
         HttpEntity < Employee > entity = new HttpEntity < > (newEmployee, httpHeaders);
-        return restTemplate.exchange(URI_EMPLOYEE + id, HttpMethod.PUT, entity, Employee.class);
+        return restTemplate.exchange(URI_EMPLOYEE + "/"+id, HttpMethod.PUT, entity, Employee.class);
     }
 
     @DeleteMapping("/employees/{id}")
@@ -70,6 +70,6 @@ public class RestTemplateController {
         HttpHeaders httpHeaders = new HttpHeaders();
         httpHeaders.setAccept(Collections.singletonList(MediaType.APPLICATION_JSON));
         HttpEntity < Employee > entity = new HttpEntity < > (httpHeaders);
-        return restTemplate.exchange(URI_EMPLOYEE + id, HttpMethod.DELETE, entity, Employee.class);
+        return restTemplate.exchange(URI_EMPLOYEE +"/"+ id, HttpMethod.DELETE, entity, Employee.class);
     }
 }
